@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Section header -->
     <header class="header" id="home">
         <div class="container flex header-container">
             <a href="#" class="header-logo">
@@ -56,6 +57,7 @@
     </header>
 
     <main class="main">
+    <!-- Section hero -->
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-content flex">
@@ -73,7 +75,7 @@
                 </div>
             </div>
         </section>
-
+    <!-- Section services -->
         <section class="services section-offset" id="services">
             <div class="container">
                 <h2 class="section-title services-title">
@@ -130,7 +132,7 @@
                 </ul>
             </div>
         </section>
-
+    <!-- Section articles -->
         <section class="articles section-offset" id="articles">
             <div class="container">
                 <h2 class="section-title articles-title">
@@ -204,7 +206,7 @@
                 </ul>
             </div>
         </section>
-
+    <!-- Section clients -->
         <section class="clients section-offset" id="clients">
             <div class="container">
                 <h2 class="section-title clients-title">
@@ -268,7 +270,7 @@
                 </ul>
             </div> 
         </section>
-
+    <!-- Sections contacts -->
         <section class="contacts section-offset" id="contacts">
             <div class="container">
                 <h2 class="section-title contacts-title">
@@ -310,9 +312,38 @@
                 </adress>
             </div>
         </section>
-
-        <!-- <section id="join-us" class="join-us">
-        </section> -->
+    <!-- Section join-us -->
+        <section class="join-us section-offset"  id="join">
+            <div class="container">
+                <h2 class="section title  join-us-title">
+                    Join us
+                </h2>
+                <p class="section descr join-us-descr">
+                    Take control of your paid subscriptions today!
+                </p>
+                <form action="https://jsonplaceholder.typicode.com/posts" method="post" class="form">
+                    <div class="form-top">
+                        <div class="form-left">
+                            <input class="form-input" type="text" name="name" placeholder="Name" required>
+                            <input class="form-input" type="email" name="email" placeholder="E-mail" required>
+                            <input class="form-input" type="tel" name="phone" placeholder="Phone" required>
+                            <select class="form-select btn-reset " name="coutry">
+                                <option value="Coutry" disabled selected>Country</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="United States">United States</option>
+                                <option value="France">France</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Estonia">Estonia</option>
+                            </select>
+                        </div>
+                        <div class="form-right">
+                            <textarea class="form-textarea" name="comment" placeholder="Comment"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
