@@ -440,6 +440,9 @@ body {
 }
 
 /* Join-us */
+.join-us {
+    border-bottom: 1px solid #c4c4c4;
+}
 
 .join-us-title {
     text-align: center;
@@ -488,9 +491,21 @@ body {
     height: 100%;
 }
 
+.form-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form-top {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 19px;
 }
 
 .form-left {
@@ -503,6 +518,31 @@ body {
 
 .form-right {
     width: 49%;
+}
+
+.form-btn {
+    min-width: 230px;
+    padding-bottom: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+    margin-bottom: 9px;
+}
+
+.form-check {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #787878;
+}
+    /* стили для тега "input" внутри класса */
+.form-check input {
+    margin-right: 8px;
+}
+
+/* стили для тега "a" внутри класса */
+.form-check a {
+    color: #3172B9;
+    border-bottom: 1px solid #3172B9;
 }
 
 /* footer */
