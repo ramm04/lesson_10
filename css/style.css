@@ -118,10 +118,40 @@ body {
 }
 
 .header-link {
+    position: relative;
     font-weight: 600;
     color: #1C1C1C;
     font-size: 15px;
 }
+
+/* .header-link:focus {
+    outline-offset: 2px;
+    outline: 1px solid #71A7E2;
+}
+
+.header-link:hover {
+    color: #71A7E2;
+}
+
+.header-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3474BA;
+    opacity: 0;
+}
+
+.header-link:active {
+    color: #3172B9;
+    outline: none;
+}
+
+.header-link:active::after {
+    opacity: 1;
+} */
 
 .header-container {
     align-items: center;
@@ -140,13 +170,58 @@ body {
 }
 
 .btn {
+    /* "position: relative;" - для абсолютного позиционирования,
+    когда делаем псевдоэлементы */
+    position: relative;
+    /*"outline: none;" - Аутлайн не может закруглять бордер */
+    outline: none;
+    border-radius: 3px;
+    padding: 15px 35px;
+    font-family: inherit;
     font-weight: 600;
     font-size: 15px;
     text-transform: uppercase;
-    padding: 15px 35px;
-    background-color: #3172B9;
     color: #fff;
-    border-radius: 3px;
+    background-color: #3172B9;
+}
+
+/* ПСЕВДОКЛАССЫ ДЛЯ КНОПОК */
+.btn::after {
+    /* Всегда указываем content (даже если пустой) */
+    content: "";
+    position: absolute;
+    /* (top, left, right и bottom)= 0 - для того чтоб псевдоэлемент растянуть
+    на весь родитель (на всю кнопку), а чтобы выйти за границы кнопки, пишем -3px */
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    /* border-radius: inherit; - чтобы радиус наследовался от родителя (от кнопки) */
+    border-radius: inherit;
+    border: 1px solid #3172B9;
+    outline: none;
+    /* opacity: 0; - для скрытия сделанной обводки */
+    opacity: 0;
+}
+
+/* Для видимости обводки при выделении мышью */
+.btn:focus::after {
+    opacity: 1;
+}
+
+/* Для изменения цвета на более светлый при наведении мыши на кнопку */
+.btn:hover {
+    background-color: #71A7E2;
+}
+
+/* Для изменения цвета на более тёмный при нажатии на кнопку */
+.btn:active {
+    background-color: #0E3B6C;
+}
+
+/* Отменяем обводку для состояния "active" */
+.btn:active::after {
+    opacity: 0;
 }
 
 /* .Hero */
@@ -223,21 +298,37 @@ body {
 }
 
 .services-item {
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
     flex-direction: column;
     align-items: center;
     padding: 60px 30px;
     width: 270px;
-    border: 1px solid #E4E4E4;
-    border-radius: 5px;
+}
 
+/* Для изменения цвета при наведении мыши. Далее используем вложенность
+для "hover" элементов карточки при помощи пробела между классами
+(переходим к "services-item-title" */
+.services-item:hover {
+    border-color: #3172B9;
+    background-color: #3172B9;
 }
 
 .services-item:not(:nth-child(4n)) {
     margin-right: 30px;
 }
 
+
+/* В html в svg-картинках меняем значение "fill" на "none", а в css
+    подставляем цвет из проэкта. Затем переходим к родительскому элементу.
+    В данном случае - "servises-item" и добавляем к нему "hover" */
 .services-item-icon {
+    fill:#3172B9;
     margin-bottom: 25px;
+}
+
+.services-item:hover .services-item-icon { 
+    fill: #fff;
 }
 
 .services-item-title {
@@ -249,6 +340,12 @@ body {
     color: #1C1C1C;
 }
 
+/* Меняем "hover" заголовка (при наведении мыши заголовок становится белым.
+Таким же образом и с другими элементами карточки */
+.services-item:hover .services-item-title {
+    color: #fff;
+}
+
 .services-item-descr {
     margin: 0;
     text-align: center;
@@ -256,6 +353,10 @@ body {
     font-size: 14px;
     line-height: 150%;
     color: #787878;
+}
+
+.services-item:hover .services-item-descr {
+    color: #fff;
 }
 
 /* Articles */
@@ -317,6 +418,67 @@ body {
     min-width: 210px;
 }
 
+.blog-preview-link {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+/* Псевдокласс "focus" для секции Articles */
+
+.blog-preview-link:focus {
+    background-color: #71A7E2;
+}
+
+.blog-preview-link:focus .blog-preview-title {
+    color: #fff;
+}
+
+.blog-preview-link:focus .blog-preview-descr {
+    color: #fff;
+}
+
+.blog-preview-link:focus .blog-preview-time {
+    color: #fff;
+}
+
+/* Псевдокласс "hover" для секции Articles */
+
+.blog-preview-link:hover {
+    background-color: #3172B9;
+}
+
+.blog-preview-link:hover .blog-preview-title {
+    color: #fff;
+}
+
+.blog-preview-link:hover .blog-preview-descr {
+    color: #fff;
+}
+
+.blog-preview-link:hover .blog-preview-time {
+    color: #fff;
+}
+
+/* Псевдокласс "Active" для секции Articles */
+
+.blog-preview-link:active {
+    background-color: #0E3B6C;
+}
+
+.blog-preview-link:active .blog-preview-title {
+    color: #fff;
+}
+
+.blog-preview-link:active .blog-preview-descr {
+    color: #fff;
+}
+
+.blog-preview-link:active .blog-preview-time {
+    color: #fff;
+}
+
+
 /* clients */
 
 .clients {
@@ -357,8 +519,9 @@ body {
     width: 67px;
     margin-right: 17px;
 }
+
 /* Для того чтобы применить стили только для изображения данного дива */
-.clients-avatar img {  
+.clients-avatar img {
     width: 100%;
     height: 100%;
     border: 2px solid #3172B9;
@@ -392,11 +555,12 @@ body {
 .contacts-item {
     flex-direction: column;
     width: 370px;
-/* Для позиционирования изображений (бекграунда) */
+    /* Для позиционирования изображений (бекграунда) */
     background-position: left top;
     background-repeat: no-repeat;
     background-size: 29px 29px;
     padding-top: 48px;
+    /* padding-right: auto; */
 }
 
 .contacts-item-address {
@@ -433,10 +597,33 @@ body {
 }
 
 .contacts-item-link {
-    font-weight: 400;
+    display: inline-block;
     font-size: 14px;
     line-height: 180%;
     color: #787878;
+}
+
+.contacns-phone {
+    padding-right: auto; 
+}
+
+.contacts-mail {
+    padding: auto;
+}
+
+/* Псевдоклассы для секции Contacts */
+
+.contacts-item-link:focus {
+    outline: 1px solid #71A7E2;
+}
+
+.contacts-item-link:hover {
+    color: #71A7E2;
+}
+
+.contacts-item-link:active {
+    outline: none;
+    color:#0E3B6C;
 }
 
 /* Join-us */
@@ -472,6 +659,21 @@ body {
     margin-bottom: 19px;
 }
 
+/* Псевдоклассы для input-ов */
+.form-input:focus {
+    outline: none;
+    border-color: #71A7E2;
+    background-color: rgba(113, 167, 226, 0.2);
+}
+
+.form-input:hover {
+    border-color: #71A7E2;
+}
+
+.form-input:active {
+    border-color: #0E3B6C;
+}
+
 .form-select {
     border: 1px solid #DADADA;
     box-sizing: border-box;
@@ -480,6 +682,21 @@ body {
     width: 251px;
     height: 60px;
 }
+
+.form-select:focus {
+    outline: none;
+    border-color: #71A7E2;
+    background-color: rgba(113, 167, 226, 0.2);
+}
+
+.form-select:hover {
+    border-color: #71A7E2;
+}
+
+.form-select:active {
+    border-color: #0E3B6C;
+}
+
 .form-textarea {
     border: 1px solid #DADADA;
     box-sizing: border-box;
@@ -489,6 +706,20 @@ body {
     padding: 16px 28px;
     width: 100%;
     height: 100%;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #71A7E2;
+    background-color: rgba(113, 167, 226, 0.2);
+}
+
+.form-textarea:hover {
+    border-color: #71A7E2;
+}
+
+.form-textarea:active {
+    border-color: #0E3B6C;
 }
 
 .form-bottom {
@@ -534,7 +765,8 @@ body {
     line-height: 16px;
     color: #787878;
 }
-    /* стили для тега "input" внутри класса */
+
+/* стили для тега "input" внутри класса */
 .form-check input {
     margin-right: 8px;
 }
@@ -589,27 +821,46 @@ body {
     margin-right: 56px;
 }
 
-.social-link {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 .social-item:not(:last-child) {
     margin-right: 32px;
 }
 
-.social-link-twitter {
-    background-image: url(../img/twitter.svg);
+.social-link {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
 }
 
-.social-link-linkedin {
-    background-image: url(../img/linkedin.png);
+.social-link svg {
+    fill: #000;
 }
 
-.social-link-mail {
-    background-image: url(../img/footer_mail.svg);
+.social-link-mail svg {
+    fill: transparent;
+    stroke: #000;
+}
+
+.social-link:focus {
+    outline-offset: 2px;
+    outline: 1px solid #71A7E2;
+}
+
+.social-link:hover svg {
+    fill: #71A7E2;
+}
+
+.social-link-mail:hover svg {
+    fill:transparent;
+    stroke: #71A7E2;
+}
+
+.social-link:active svg {
+    fill: #3172B9;
+}
+
+.social-link-mail:active svg {
+    fill:transparent;
+    stroke: #3172B9;
 }
