@@ -1,4 +1,4 @@
-.header-link:focus {
+/* .header-link:focus {
     outline-offset: 2px;
     outline: 1px solid #71A7E2;
 }
@@ -25,4 +25,4 @@
 
 .header-link:active::after {
     opacity: 1;
-}
+} */
