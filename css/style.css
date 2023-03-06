@@ -112,12 +112,28 @@ body {
 /* Header */
 
 .header {
-    padding: 36px 0;
     border-bottom: 1px solid #c4c4c4;
+    padding: 36px 0;
     background-color: #fff;
 }
 
-.header-link {
+.header__container {
+    align-items: center;
+}
+
+.header__logo {
+    margin-right: auto;
+}
+
+.header__nav {
+    margin-right: 52px;
+}
+
+.nav__item:not(:last-child) {
+    margin-right: 52px;
+}
+
+.nav__link {
     position: relative;
     font-weight: 600;
     color: #1C1C1C;
@@ -125,16 +141,16 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.header-link:focus {
+.nav__link:focus {
     outline-offset: 2px;
     outline: 1px solid #71A7E2;
 }
 
-.header-link:hover {
+.nav__link:hover {
     color: #71A7E2;
 }
 
-.header-link::after {
+.nav__link::after {
     content: "";
     position: absolute;
     left: 0;
@@ -146,29 +162,13 @@ body {
     transition: opasity 0.3s ease-in-out;
 }
 
-.header-link:active {
+.nav__link:active {
     color: #3172B9;
     outline: none;
 }
 
-.header-link:active::after {
+.nav__link:active::after {
     opacity: 1;
-}
-
-.header-container {
-    align-items: center;
-}
-
-.header-logo {
-    margin-right: auto;
-}
-
-.header-nav {
-    margin-right: 52px;
-}
-
-.header-list-item:not(:last-child) {
-    margin-right: 52px;
 }
 
 .btn {
@@ -240,13 +240,13 @@ body {
     background-position: center;
 }
 
-.hero-content {
+.hero__content {
     max-width: 50%;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.hero-title {
+.hero__title {
     margin: 0;
     margin-bottom: 25px;
     font-weight: 300;
@@ -254,7 +254,7 @@ body {
     line-height: 130%;
 }
 
-.hero-descr {
+.hero__descr {
     margin: 0px;
     margin-bottom: 34px;
     font-size: 16px;
@@ -262,13 +262,13 @@ body {
     color: #787878;
 }
 
-.hero-wrapper {
+.hero__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.hero-btn {
+.hero__btn {
     margin-bottom: 14px;
     min-width: 250px;
     padding-top: 20px;
@@ -276,7 +276,7 @@ body {
     margin-bottom: 14px;
 }
 
-.hero-secure {
+.hero__secure {
     font-size: 11px;
     line-height: 155%;
     color: #787878;
